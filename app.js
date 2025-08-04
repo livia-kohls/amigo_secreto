@@ -12,13 +12,15 @@ function adicionarAmigo() {
   listaAmigos.push(nome);
   campo.value = "";
 
-  // Agora sim! Atualiza a lista visual logo após adicionar
+  exibirListaDeAmigos();
+}
+
+function exibirListaDeAmigos() {
   const ul = document.querySelector("#listaAmigos");
+
   ul.innerHTML = "";
 
-  listaAmigos.forEach(function(amigo) {
-    const item = document.createElement("li");
-    item.textContent = amigo;
-    ul.appendChild(item);
-  });
+  for (let i = 0; i < listaAmigos.length; i++) {
+    ul.innerHTML += `<li>${listaAmigos[i]}</li>`;
+  }
 }
